@@ -1,36 +1,59 @@
 package ru.neolant.sandbox;
 
+public class MyFirstProgram {
+    public static void main(String[] args) {
+
+
+        Point p1 = new Point(9,5);
+        System.out.println("Расстояние между точками " + p1.x + " и " + p1.y + " = " + p1.area());
+
+        Point p2 = new Point(2,4);
+        System.out.println("Расстояние между точками " + p2.x1 + " и " + p2.y1 + " = " + p2.area());
+
+        double a = distance(p1,p2);
+        System.out.println("Расстояние между точками " + a);
+
+
+    }
+
+
+
+    public static double distance(Point p1, Point p2) {
+        return Math.sqrt((p2.x1-p1.x)-(2*p2.x1*p1.x)+(p1.x*p1.x)+(p1.y*p1.y)-(2*p1.y-p1.y)+(p1.y*p1.y));
+
+    }
+}
+
+
+
+
+
+
 //public class MyFirstProgram{
 //  public static void main(String[]args){
 ////    String somebody =("world");                           задали текстовую переменную
 ////    System.out.println("Hello, " + somebody + "!");           использовали текстовую переменную
-      public class MyFirstProgram {
-    public static void main(String[] args) {
-        Point p1 = new Point(5,2);
-        System.out.println("Первая точка " + p1.x + " и " + p1.y);
-
-        Point p2 = new Point(10,4);
-        System.out.println("Вторая точка " + p2.x + " и " + p2.y);
-
-        double a = distance(p1,p2);
-        System.out.println("Расстояние между точками " + a);
-    }
-
-        public static double distance (Point p1, Point p2){
-        return Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y));
-
-        }
-
-
-    }
-
-//    Distance должен возвращать значение равное Корню из суммы квадратов разниц.
-//        Функция distance должна вызываться в main один раз после того как вы создали объекты. Корень нужно находить только один раз - в функции distance
-
-
-
-
-
+//      public class MyFirstProgram {
+//    public static void main(String[] args) {
+//        Point p1 = new Point(5,2);
+//        System.out.println("Первая точка " + p1.x + " - " + p1.y);
+//
+//        Point p2 = new Point(10,4);
+//        System.out.println("Вторая точка " + p2.x + " и " + p2.y);
+//
+//        double a = distance(p1,p2);
+//        System.out.println("Расстояние между точками " + a);
+//    }
+//
+//        public static double distance (Point p1, Point p2){
+//        return Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y));
+//
+//        }
+//
+//
+//    }
+//
+//
 
 //        hello("World");
 //        hello("Dima");
