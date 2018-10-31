@@ -5,24 +5,17 @@ public class MyFirstProgram {
 
 
         Point p1 = new Point(9,5);
-        System.out.println("Расстояние между точками " + p1.x + " и " + p1.y + " = " + p1.area());
+        Point p2 = new Point(3,15);
 
-        Point p2 = new Point(2,4);
-        System.out.println("Расстояние между точками " + p2.x1 + " и " + p2.y1 + " = " + p2.area());
-
-        double a = distance(p1,p2);
+        double a = p1.distance(p2);
         System.out.println("Расстояние между точками " + a);
-
-
     }
 
 
 
-    public static double distance(Point p1, Point p2) {
-        return Math.sqrt((p2.x1-p1.x)-(2*p2.x1*p1.x)+(p1.x*p1.x)+(p1.y*p1.y)-(2*p1.y-p1.y)+(p1.y*p1.y));
 
     }
-}
+
 
 
 
