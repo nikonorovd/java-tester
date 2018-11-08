@@ -1,4 +1,4 @@
-package ru.neolant.addressbook;
+package ru.neolant.addressbook.model;
 
 public class GroupData {
     private final String name;

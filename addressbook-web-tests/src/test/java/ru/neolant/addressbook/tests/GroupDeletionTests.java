@@ -1,4 +1,4 @@
-package ru.neolant.addressbook;
+package ru.neolant.addressbook.tests;
 
 import org.testng.annotations.Test;
 
@@ -7,10 +7,10 @@ public class GroupDeletionTests extends TestBase {
 
     @Test
   public void testGroupDeletion() throws Exception {
-    GotoGroupPage();
-    selectGroup();
-    deleteSelectedGroups();
-    returnToGroupPage();
+    app.GotoGroupPage();
+    app.selectGroup();
+    app.deleteSelectedGroups();
+    app.returnToGroupPage();
   }
 
 }
