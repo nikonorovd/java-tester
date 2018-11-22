@@ -30,6 +30,7 @@ public class TestBase {
     }
 
     protected void logout() {
+        //новое изменение
         wd.findElement(By.linkText("Logout")).click();
     }
 
@@ -81,12 +82,12 @@ public class TestBase {
         } catch (NoAlertPresentException e) {
             return false;
         }
+
     }
 
     protected void deleteSelectedGroups() {
       wd.findElement(By.name("delete")).click();
     }
-
     protected void selectGroup() {
       wd.findElement(By.name("selected[]")).click();
     }
