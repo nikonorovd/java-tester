@@ -6,8 +6,9 @@ import org.testng.annotations.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.neolant.addressbook.model.TestBase;
 
-public class CreateContactsTests {
+public class CreateContactsTests extends TestBase {
     private WebDriver wd;
 
     @BeforeMethod(alwaysRun = true)
