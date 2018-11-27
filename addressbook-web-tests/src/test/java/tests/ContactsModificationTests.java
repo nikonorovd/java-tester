@@ -1,4 +1,4 @@
-package ru.neolant.addressbook.tests;
+package tests;
 
 import org.testng.annotations.Test;
 import tests.ContacsBase;
@@ -6,7 +6,7 @@ import tests.ContacsBase;
 public class ContactsModificationTests extends ContacsBase {
     @Test
     public void testContactsModification(){
-       contactsM.selectedContact();
+       contactsM.getContactHelper().selectedContact();
 
         
     }

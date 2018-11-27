@@ -10,8 +10,8 @@ import ru.neolant.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 
-    protected final ApplicationManager app = new ApplicationManager();
-    protected WebDriver wd;
+    protected ApplicationManager app ;
+    public WebDriver wd;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
