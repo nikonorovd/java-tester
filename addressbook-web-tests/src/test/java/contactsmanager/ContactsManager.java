@@ -1,24 +1,22 @@
-package ru.neolant.addressbook.tests;
+package contactsmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import modelcontacts.AddNewData;
 
 import java.util.concurrent.TimeUnit;
 
-public class ContacsBase {
+public class ContactsManager {
     protected WebDriver wd;
 
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
-      wd = new FirefoxDriver();
-      wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-      wd.get("http://localhost/addressbook/");
-      login("admin", "secret");
+    public void init() {
+        wd = new FirefoxDriver();
+        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/");
+        login("admin", "secret");
     }
 
     private void login(String username, String password) {
@@ -29,19 +27,19 @@ public class ContacsBase {
       wd.findElement(By.id("LoginForm")).submit();
     }
 
-    protected void logout() {
+    public void logout() {
       wd.findElement(By.linkText("Logout")).click();
     }
 
-    protected void returnAddNew() {
+    public void returnAddNew() {
       wd.findElement(By.linkText("home")).click();
     }
 
-    protected void submitAddNew() {
+    public void submitAddNew() {
       wd.findElement(By.name("submit")).click();
     }
 
-    protected void fillAddNewForm(AddNewData addNewData) {
+    public void fillAddNewForm(AddNewData addNewData) {
       wd.findElement(By.name("firstname")).click();
       wd.findElement(By.name("firstname")).clear();
       wd.findElement(By.name("firstname")).sendKeys(addNewData.getFirstname());
@@ -64,14 +62,13 @@ public class ContacsBase {
       wd.findElement(By.name("work")).sendKeys(addNewData.getWork());
     }
 
-    protected void gotoNewPage() {
+    public void gotoNewPage() {
       wd.findElement(By.linkText("add new")).click();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
-      wd.quit();
-        }
+    public void stop() {
+        wd.quit();
+    }
 
     private boolean isElementPresent(By by) {
       try {
@@ -91,12 +88,12 @@ public class ContacsBase {
         }
     }
 
-    protected void deletedContact() {
+    public void deletedContact() {
       wd.findElement(By.xpath("//input[@value='Delete']")).click();
       wd.switchTo().alert().accept();
     }
 
-    protected void selectedContact() {
+    public void selectedContact() {
       wd.findElement(By.xpath("//input[@name='selected[]']")).click();
     }
 }

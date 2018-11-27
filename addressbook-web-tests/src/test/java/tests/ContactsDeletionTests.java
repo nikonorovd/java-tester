@@ -1,4 +1,4 @@
-package ru.neolant.addressbook.tests;
+package tests;
 
 import org.testng.annotations.Test;
 
@@ -9,8 +9,8 @@ public class ContactsDeletionTests extends ContacsBase{
   @Test
   public void testContactsDeletion() {
 
-    selectedContact();
-    deletedContact();
+    contactsM.selectedContact();
+    contactsM.deletedContact();
 
   }
 

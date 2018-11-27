@@ -1,4 +1,4 @@
-package ru.neolant.addressbook.tests;
+package modelcontacts;
 
 public class AddNewData {
     private final String firstname;

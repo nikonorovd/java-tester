@@ -1,4 +1,4 @@
-package ru.neolant.addressbook.model;
+package ru.neolant.addressbook.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
