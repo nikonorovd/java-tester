@@ -5,7 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager {
+public class ApplicationManager extends ContactHelper{
     FirefoxDriver wd;
 
     private SessionHelper sessionHelper;
