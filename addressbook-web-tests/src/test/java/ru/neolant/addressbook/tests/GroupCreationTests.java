@@ -8,6 +8,7 @@ import ru.neolant.addressbook.model.GroupData;
 
 public class GroupCreationTests extends TestBase {
 
+
     @Test
     public void testGroupCreation(){
 

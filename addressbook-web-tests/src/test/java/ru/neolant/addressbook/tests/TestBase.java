@@ -4,14 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import ru.neolant.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 
-    public ApplicationManager app ;
-    public WebDriver wd;
+    public ApplicationManager app = new ApplicationManager(null);
+    public FirefoxDriver wd;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
