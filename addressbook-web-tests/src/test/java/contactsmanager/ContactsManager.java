@@ -1,8 +1,6 @@
 package contactsmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -25,32 +23,14 @@ public class ContactsManager {
     }
 
 
-
     public void logout() {
-      wd.findElement(By.linkText("Logout")).click();
+        wd.findElement(By.linkText("Logout")).click();
     }
 
     public void stop() {
         wd.quit();
     }
 
-    private boolean isElementPresent(By by) {
-      try {
-        wd.findElement(by);
-        return true;
-      } catch (NoSuchElementException e) {
-        return false;
-      }
-    }
-
-    private boolean isAlertPresent() {
-        try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
 
     public ContactHelper getContactHelper() {
         return contactHelper;

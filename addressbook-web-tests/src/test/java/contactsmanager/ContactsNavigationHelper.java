@@ -3,16 +3,16 @@ package contactsmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ContactsNavigationHelper {
+public class ContactsNavigationHelper extends ContactsHelperBase{
 
-    private FirefoxDriver wd;
 
     public ContactsNavigationHelper(FirefoxDriver wd) {
-        this. wd = wd;
+        super(wd);
 
     }
 
     public void gotoNewPage() {
-      wd.findElement(By.linkText("add new")).click();
+
+        click(By.linkText("add new"));
     }
 }
