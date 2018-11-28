@@ -8,6 +8,8 @@ import tests.ContacsBase;
 
 public class ContactHelper extends ContactsHelperBase {
 
+    public Object initContactsModification;
+
     public ContactHelper(FirefoxDriver wd) {
 
         super(wd);
@@ -47,5 +49,14 @@ public class ContactHelper extends ContactsHelperBase {
 
     public void selectedContact() {
         click(By.xpath("//input[@name='selected[]']"));
+    }
+
+    public void initContactsModification() {
+        click(By.xpath("edit"));
+
+    }
+
+    public void submitContactsModification() {
+        click(By.xpath("update"));
     }
 }
