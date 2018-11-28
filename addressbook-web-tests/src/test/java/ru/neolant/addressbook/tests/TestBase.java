@@ -7,10 +7,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import ru.neolant.addressbook.appmanager.ApplicationManager;
+import sun.plugin2.util.BrowserType;
 
 public class TestBase {
 
-    public ApplicationManager app = new ApplicationManager(null);
+    protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
     public FirefoxDriver wd;
 
     @BeforeMethod(alwaysRun = true)
