@@ -1,9 +1,8 @@
-package ru.neolant.addressbook.appmanager;
+package contactsmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.neolant.addressbook.model.GroupData;
+import modelcontacts.GroupData;
 
 public class GroupHelper extends HelperBase {
 
@@ -18,6 +17,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public void submitGroupCreation() {
+
         click(By.name("submit"));
     }
 

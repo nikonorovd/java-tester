@@ -1,8 +1,9 @@
-package tests;
+package ru.neolant.addressbook.tests;
 
 
 import org.testng.annotations.*;
 import modelcontacts.AddNewData;
+import ru.neolant.addressbook.tests.ContacsBase;
 
 
 public class ContactsCreationTests extends ContacsBase {

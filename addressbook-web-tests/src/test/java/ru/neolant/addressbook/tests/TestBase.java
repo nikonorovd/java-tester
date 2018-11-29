@@ -6,12 +6,11 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import ru.neolant.addressbook.appmanager.ApplicationManager;
-import sun.plugin2.util.BrowserType;
+import contactsmanager.ApplicationManager;
 
 public class TestBase {
 
-    protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+    public ApplicationManager app = new ApplicationManager(null);
     public FirefoxDriver wd;
 
     @BeforeMethod(alwaysRun = true)

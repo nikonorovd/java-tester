@@ -3,7 +3,7 @@ package ru.neolant.addressbook.tests;
 
 
 import org.testng.annotations.*;
-import ru.neolant.addressbook.model.GroupData;
+import modelcontacts.GroupData;
 
 
 public class GroupCreationTests extends TestBase {

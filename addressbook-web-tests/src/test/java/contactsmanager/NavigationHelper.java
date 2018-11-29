@@ -1,10 +1,10 @@
-package ru.neolant.addressbook.appmanager;
+package contactsmanager;
 
+import contactsmanager.HelperBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class NavigationHelper extends HelperBase{
+public class NavigationHelper extends HelperBase {
 
     public NavigationHelper(WebDriver wd) {
         super(wd);

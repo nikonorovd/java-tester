@@ -1,4 +1,4 @@
-package tests;
+package ru.neolant.addressbook.tests;
 
 import contactsmanager.ContactsManager;
 import org.testng.annotations.AfterMethod;

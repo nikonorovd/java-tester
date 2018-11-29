@@ -3,8 +3,6 @@ package contactsmanager;
 import modelcontacts.AddNewData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.neolant.addressbook.tests.TestBase;
-import tests.ContacsBase;
 
 public class ContactHelper extends ContactsHelperBase {
 

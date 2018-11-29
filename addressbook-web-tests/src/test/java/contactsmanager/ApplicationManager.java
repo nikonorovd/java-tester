@@ -1,6 +1,5 @@
-package ru.neolant.addressbook.appmanager;
+package contactsmanager;
 
-import contactsmanager.ContactHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,11 +9,11 @@ import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager extends ContactHelper {
+public class ApplicationManager extends GroupHelper {
     WebDriver wd;
 
     private SessionHelper sessionHelper;
-    private  NavigationHelper navigationHelper;
+    private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
 
     public ApplicationManager(FirefoxDriver wd) {

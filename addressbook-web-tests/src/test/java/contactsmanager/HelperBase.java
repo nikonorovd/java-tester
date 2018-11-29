@@ -1,4 +1,4 @@
-package ru.neolant.addressbook.appmanager;
+package contactsmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
