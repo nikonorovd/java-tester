@@ -1,12 +1,11 @@
 package ru.neolant.addressbook.appmanager;
 
-import contactsmanager.ContactHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager extends ContactHelper {
+public class ApplicationManager extends GroupHelper {
     FirefoxDriver wd;
 
     private SessionHelper sessionHelper;

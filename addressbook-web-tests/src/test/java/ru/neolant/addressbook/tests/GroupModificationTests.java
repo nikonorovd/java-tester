@@ -1,7 +1,6 @@
 package ru.neolant.addressbook.tests;
 
 import org.testng.annotations.Test;
-import ru.neolant.addressbook.model.GroupData;
 
 public class GroupModificationTests extends TestBase {
     @Test

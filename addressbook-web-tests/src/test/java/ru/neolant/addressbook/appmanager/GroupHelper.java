@@ -2,7 +2,7 @@ package ru.neolant.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.neolant.addressbook.model.GroupData;
+import ru.neolant.addressbook.tests.GroupData;
 
 public class GroupHelper extends HelperBase {
 
