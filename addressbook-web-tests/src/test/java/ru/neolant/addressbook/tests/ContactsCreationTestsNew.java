@@ -12,23 +12,23 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class ContactsCreationTestsNew {
-    private WebDriver driver;
+    private WebDriver wd;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.get("http://localhost/addressbook/");
+        wd = new FirefoxDriver();
+        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/");
         login("admin", "secret");
     }
 
     private void login(String username, String password) {
-        driver.findElement(By.name("user")).click();
-        driver.findElement(By.name("user")).clear();
-        driver.findElement(By.name("user")).sendKeys(username);
-        driver.findElement(By.name("pass")).clear();
-        driver.findElement(By.name("pass")).sendKeys(password);
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        wd.findElement(By.name("user")).click();
+        wd.findElement(By.name("user")).clear();
+        wd.findElement(By.name("user")).sendKeys(username);
+        wd.findElement(By.name("pass")).clear();
+        wd.findElement(By.name("pass")).sendKeys(password);
+        wd.findElement(By.xpath("//input[@value='Login']")).click();
     }
 
     @Test
@@ -41,50 +41,50 @@ public class ContactsCreationTestsNew {
     }
 
     private void returnToHomePage() {
-        driver.findElement(By.id("logo")).click();
+        wd.findElement(By.id("logo")).click();
     }
 
     private void submitContactCreation() {
-        driver.findElement(By.name("submit")).click();
+        wd.findElement(By.name("submit")).click();
     }
 
     private void fillGroupForm(GroupData groupData) {
-        driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(groupData.getFirstname());
-        driver.findElement(By.name("middlename")).clear();
-        driver.findElement(By.name("middlename")).sendKeys(groupData.getMiddle_name());
-        driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(groupData.getLast_name());
-        driver.findElement(By.name("company")).click();
-        driver.findElement(By.name("company")).clear();
-        driver.findElement(By.name("company")).sendKeys(groupData.getCompany());
-        driver.findElement(By.name("address")).click();
-        driver.findElement(By.name("address")).clear();
-        driver.findElement(By.name("address")).sendKeys(groupData.getAddress());
-        driver.findElement(By.name("home")).click();
-        driver.findElement(By.name("home")).clear();
-        driver.findElement(By.name("home")).sendKeys(groupData.getHomephone());
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(groupData.getMobile());
-        driver.findElement(By.name("email")).click();
-        driver.findElement(By.name("email")).clear();
-        driver.findElement(By.name("email")).sendKeys(groupData.getEmail());
+        wd.findElement(By.name("firstname")).click();
+        wd.findElement(By.name("firstname")).clear();
+        wd.findElement(By.name("firstname")).sendKeys(groupData.getFirstname());
+        wd.findElement(By.name("middlename")).clear();
+        wd.findElement(By.name("middlename")).sendKeys(groupData.getMiddle_name());
+        wd.findElement(By.name("lastname")).clear();
+        wd.findElement(By.name("lastname")).sendKeys(groupData.getLast_name());
+        wd.findElement(By.name("company")).click();
+        wd.findElement(By.name("company")).clear();
+        wd.findElement(By.name("company")).sendKeys(groupData.getCompany());
+        wd.findElement(By.name("address")).click();
+        wd.findElement(By.name("address")).clear();
+        wd.findElement(By.name("address")).sendKeys(groupData.getAddress());
+        wd.findElement(By.name("home")).click();
+        wd.findElement(By.name("home")).clear();
+        wd.findElement(By.name("home")).sendKeys(groupData.getHomephone());
+        wd.findElement(By.name("mobile")).click();
+        wd.findElement(By.name("mobile")).clear();
+        wd.findElement(By.name("mobile")).sendKeys(groupData.getMobile());
+        wd.findElement(By.name("email")).click();
+        wd.findElement(By.name("email")).clear();
+        wd.findElement(By.name("email")).sendKeys(groupData.getEmail());
     }
 
     private void gotoAddNew() {
-        driver.findElement(By.linkText("add new")).click();
+        wd.findElement(By.linkText("add new")).click();
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
-        driver.quit();
+        wd.quit();
     }
 
     private boolean isElementPresent(By by) {
         try {
-            driver.findElement(by);
+            wd.findElement(by);
             return true;
         } catch (NoSuchElementException e) {
             return false;
@@ -93,7 +93,7 @@ public class ContactsCreationTestsNew {
 
     private boolean isAlertPresent() {
         try {
-            driver.switchTo().alert();
+            wd.switchTo().alert();
             return true;
         } catch (NoAlertPresentException e) {
             return false;

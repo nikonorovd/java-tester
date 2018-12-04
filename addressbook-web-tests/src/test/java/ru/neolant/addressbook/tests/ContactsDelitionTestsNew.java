@@ -5,43 +5,60 @@ import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ContactsDelitionTestsNew {
-  private WebDriver driver;
+public class ContactsDelitionTestsNew extends TestBase{
+  private WebDriver wd;
 
 
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
-    driver = new FirefoxDriver();
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    driver.get("http://localhost/addressbook/");
+    wd = new FirefoxDriver();
+    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.get("http://localhost/addressbook/");
     login("admin", "secret");
   }
 
   private void login(String username, String password) {
-    driver.findElement(By.name("user")).click();
-    driver.findElement(By.name("user")).clear();
-    driver.findElement(By.name("user")).sendKeys(username);
-    driver.findElement(By.name("pass")).clear();
-    driver.findElement(By.name("pass")).sendKeys(password);
-    driver.findElement(By.xpath("//input[@value='Login']")).click();
+    wd.findElement(By.name("user")).click();
+    wd.findElement(By.name("user")).clear();
+    wd.findElement(By.name("user")).sendKeys(username);
+    wd.findElement(By.name("pass")).clear();
+    wd.findElement(By.name("pass")).sendKeys(password);
+    wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
   @Test
   public void testContactsDelitionTestsNew() throws Exception {
 
-    driver.findElement(By.id("9")).click();
-    driver.findElement(By.xpath("//input[@value='Delete']")).click();
-    driver.findElement(By.id("logo")).click();
+    clickContact();
+    deleteContact();
+    confirmDeletion();
+    returnToHomePage();
+  }
+
+  private void returnToHomePage() {
+    wd.findElement(By.id("logo")).click();
+  }
+
+  private void confirmDeletion() {
+    wd.switchTo().alert().accept();
+  }
+
+  private void deleteContact() {
+    wd.findElement(By.xpath("//input[@value='Delete']")).click();
+  }
+
+  private void clickContact() {
+    wd.findElement(By.id("9")).click();
   }
 
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
-    driver.quit();
+    wd.quit();
      }
 
   private boolean isElementPresent(By by) {
     try {
-      driver.findElement(by);
+      wd.findElement(by);
       return true;
     } catch (NoSuchElementException e) {
       return false;
@@ -50,7 +67,7 @@ public class ContactsDelitionTestsNew {
 
   private boolean isAlertPresent() {
     try {
-      driver.switchTo().alert();
+      wd.switchTo().alert();
       return true;
     } catch (NoAlertPresentException e) {
       return false;

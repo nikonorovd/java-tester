@@ -5,7 +5,7 @@ import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ContactsModificationTestsNew {
+public class ContactsModificationTestsNew extends TestBase{
   private WebDriver wd;
 
 
@@ -30,12 +30,32 @@ public class ContactsModificationTestsNew {
   @Test
   public void testContactsModificationTests() throws Exception {
 
-    wd.findElement(By.xpath("//img[@alt='Edit']")).click();
+    editContact();
+    clickFirstname();
+    renameFirstname();
+    updateFrstname();
+    returnToHomePage();
+  }
+
+  private void returnToHomePage() {
+    wd.findElement(By.id("logo")).click();
+  }
+
+  private void updateFrstname() {
+    wd.findElement(By.xpath("(//input[@name='update'])[2]")).click();
+  }
+
+  private void renameFirstname() {
+    wd.findElement(By.name("firstname")).sendKeys("name1");
+  }
+
+  private void clickFirstname() {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys("name1");
-    wd.findElement(By.xpath("(//input[@name='update'])[2]")).click();
-    wd.findElement(By.id("logo")).click();
+  }
+
+  public void editContact() {
+    wd.findElement(By.xpath("//img[@alt='Edit']")).click();
   }
 
   @AfterMethod(alwaysRun = true)
