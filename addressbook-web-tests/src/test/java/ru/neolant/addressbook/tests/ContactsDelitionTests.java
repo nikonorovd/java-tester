@@ -2,10 +2,11 @@ package ru.neolant.addressbook.tests;
 
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
+import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ContactsDelitionTestsNew extends TestBase{
+public class ContactsDelitionTests {
   private WebDriver wd;
 
 
@@ -13,48 +14,26 @@ public class ContactsDelitionTestsNew extends TestBase{
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    wd.get("http://localhost/addressbook/");
-    login("admin", "secret");
-  }
-
-  private void login(String username, String password) {
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys(username);
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
   @Test
-  public void testContactsDelitionTestsNew() throws Exception {
-
-    clickContact();
-    deleteContact();
-    confirmDeletion();
-    returnToHomePage();
-  }
-
-  private void returnToHomePage() {
-    wd.findElement(By.id("logo")).click();
-  }
-
-  private void confirmDeletion() {
-    wd.switchTo().alert().accept();
-  }
-
-  private void deleteContact() {
+  public void testContactsDelitionTests() throws Exception {
+    wd.get("http://localhost/addressbook/");
+    wd.findElement(By.name("user")).click();
+    wd.findElement(By.name("user")).clear();
+    wd.findElement(By.name("user")).sendKeys("admin");
+    wd.findElement(By.name("pass")).clear();
+    wd.findElement(By.name("pass")).sendKeys("secret");
+    wd.findElement(By.xpath("//input[@value='Login']")).click();
+    wd.findElement(By.id("27")).click();
     wd.findElement(By.xpath("//input[@value='Delete']")).click();
-  }
 
-  private void clickContact() {
-    wd.findElement(By.id("9")).click();
   }
 
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     wd.quit();
-     }
+  }
 
   private boolean isElementPresent(By by) {
     try {
@@ -73,5 +52,4 @@ public class ContactsDelitionTestsNew extends TestBase{
       return false;
     }
   }
-
- }
+}

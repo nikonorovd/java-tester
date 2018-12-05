@@ -5,7 +5,7 @@ import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ContactsModificationTestsNew extends TestBase{
+public class ContactsModificationTests {
   private WebDriver wd;
 
 
@@ -13,49 +13,25 @@ public class ContactsModificationTestsNew extends TestBase{
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    wd.get("http://localhost/addressbook/");
-    login("admin", "secret");
-  }
-
-  private void login(String username, String password) {
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys(username);
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
   @Test
   public void testContactsModificationTests() throws Exception {
-
-    editContact();
-    clickFirstname();
-    renameFirstname();
-    updateFrstname();
-    returnToHomePage();
-  }
-
-  private void returnToHomePage() {
-    wd.findElement(By.id("logo")).click();
-  }
-
-  private void updateFrstname() {
-    wd.findElement(By.xpath("(//input[@name='update'])[2]")).click();
-  }
-
-  private void renameFirstname() {
-    wd.findElement(By.name("firstname")).sendKeys("name1");
-  }
-
-  private void clickFirstname() {
+    wd.get("http://localhost/addressbook/");
+    wd.findElement(By.name("user")).click();
+    wd.findElement(By.name("user")).click();
+    wd.findElement(By.name("user")).clear();
+    wd.findElement(By.name("user")).sendKeys("admin");
+    wd.findElement(By.name("pass")).clear();
+    wd.findElement(By.name("pass")).sendKeys("secret");
+    wd.findElement(By.id("11")).click();
+    wd.findElement(By.xpath("//input[@value='Login']")).click();
+    wd.findElement(By.xpath("//img[@alt='Edit']")).click();
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-  }
-
-  public void editContact() {
-    wd.findElement(By.xpath("//img[@alt='Edit']")).click();
+    wd.findElement(By.name("firstname")).sendKeys("name1");
+    wd.findElement(By.xpath("(//input[@name='update'])[2]")).click();
+    wd.findElement(By.id("logo")).click();
   }
 
   @AfterMethod(alwaysRun = true)
