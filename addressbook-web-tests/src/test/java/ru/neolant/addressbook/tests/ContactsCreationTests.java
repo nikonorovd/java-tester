@@ -33,7 +33,7 @@ public class ContactsCreationTests {
     }
 
     @Test
-    public void testContactsCreationTests() throws Exception {
+    public void testContactsCreation() throws Exception {
 
         goroAddNew();
         fillGroupForm(new ContactData("first name", "middle name", "last name", "company", "Titova", "1212121", "555666", "info@info.ru"));
