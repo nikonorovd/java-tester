@@ -13,6 +13,7 @@ public class ContactsCreationTests extends TestBase{
         app.fillGroupFormContacts(new ContactData("first name", "middle name", "last name", "company", "Titova", "1212121", "555666", "info@info.ru"));
         app.submitContactsCreation();
         app.returnToHomePage();
+
     }
 
 }

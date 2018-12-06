@@ -9,7 +9,6 @@ public class ContactsDelitionTests extends TestBase {
     public void testContactsDelitionTests() throws Exception {
         app.selectContact();
         app.deleteSelectedContacts();
-        app.returnToHomePage();
 
     }
 
