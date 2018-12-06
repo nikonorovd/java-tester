@@ -1,9 +1,6 @@
 package ru.neolant.addressbook.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -56,6 +53,44 @@ public class TestBase {
       wd.findElement(By.linkText("groups")).click();
     }
 
+    protected void returnToHomePage() {
+        wd.switchTo().alert().accept();
+        wd.findElement(By.id("logo")).click();
+    }
+
+    protected void submitContactsCreation() {
+        wd.findElement(By.name("submit")).click();
+    }
+
+    protected void fillGroupFormContacts(ContactData contactData) {
+        wd.findElement(By.name("firstname")).click();
+        wd.findElement(By.name("firstname")).clear();
+        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
+        wd.findElement(By.name("middlename")).clear();
+        wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
+        wd.findElement(By.name("lastname")).clear();
+        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
+        wd.findElement(By.name("company")).click();
+        wd.findElement(By.name("company")).clear();
+        wd.findElement(By.name("company")).sendKeys(contactData.getCompany());
+        wd.findElement(By.name("address")).click();
+        wd.findElement(By.name("address")).clear();
+        wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
+        wd.findElement(By.name("home")).click();
+        wd.findElement(By.name("home")).clear();
+        wd.findElement(By.name("home")).sendKeys(contactData.getHome());
+        wd.findElement(By.name("mobile")).click();
+        wd.findElement(By.name("mobile")).clear();
+        wd.findElement(By.name("mobile")).sendKeys(contactData.getModile());
+        wd.findElement(By.name("email")).click();
+        wd.findElement(By.name("email")).clear();
+        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+    }
+
+    protected void gotoAddNew() {
+        wd.findElement(By.linkText("add new")).click();
+    }
+
     @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
       wd.quit();
@@ -86,5 +121,13 @@ public class TestBase {
       } catch (NoAlertPresentException e) {
         return false;
       }
+    }
+
+    protected void deleteSelectedContacts() {
+        wd.findElement(By.xpath("//input[@value='Delete']")).click();
+    }
+
+    protected void selectContact() {
+        wd.findElement(By.id("21")).click();
     }
 }
