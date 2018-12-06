@@ -1,4 +1,4 @@
-package ru.neolant.addressbook.tests;
+package ru.neolant.addressbook.tests.Tests;
 
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
