@@ -57,6 +57,8 @@ public class ApplicationManager {
 
     public void returnToHomePage() {
         wd.switchTo().alert().accept();
+        wd.findElement(By.id("logo")).click();
+
 
     }
 
