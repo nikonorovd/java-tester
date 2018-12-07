@@ -7,8 +7,8 @@ public class ContactsDelitionTests extends TestBase {
 
     @Test
     public void testContactsDelitionTests() throws Exception {
-        app.selectContact();
-        app.deleteSelectedContacts();
+        app.getGroupHelper().selectContact();
+        app.getGroupHelper().deleteSelectedContacts();
 
     }
 
