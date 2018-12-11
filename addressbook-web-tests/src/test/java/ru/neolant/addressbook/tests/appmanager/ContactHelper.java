@@ -43,4 +43,13 @@ public class ContactHelper {
         wd.switchTo().alert().accept();
 
     }
+    public void deletionContact() {
+        wd.findElement(By.xpath("//input[@value='Delete']")).click();
+        wd.switchTo().alert().accept();
+    }
+
+    public void selectContact() {
+        wd.findElement(By.name("selected[]")).click();
+    }
 }
+

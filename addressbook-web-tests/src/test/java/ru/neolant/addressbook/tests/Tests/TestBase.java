@@ -1,5 +1,7 @@
 package ru.neolant.addressbook.tests.Tests;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import ru.neolant.addressbook.tests.appmanager.ApplicationManager;
@@ -7,6 +9,7 @@ import ru.neolant.addressbook.tests.appmanager.ApplicationManager;
 public class TestBase {
 
     protected final ApplicationManager app = new ApplicationManager();
+    private WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
@@ -18,5 +21,6 @@ public class TestBase {
         app.stop();
 
     }
+
 
 }
