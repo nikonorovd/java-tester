@@ -42,6 +42,7 @@ public class ApplicationManager {
     }
 
     public void deleteSelectedContacts() {
+
         wd.findElement(By.xpath("//input[@value='Delete']")).click();
     }
 
