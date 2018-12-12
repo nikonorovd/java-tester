@@ -16,6 +16,7 @@ public class ContactsDeletionTests extends TestBase{
 
     app.selectContact();
     app.deletionContact();
+    app.returnToHomePage();
 
   }
 

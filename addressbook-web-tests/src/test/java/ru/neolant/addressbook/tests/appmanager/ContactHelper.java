@@ -4,41 +4,43 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.neolant.addressbook.tests.model.ContactData;
 
-public class ContactHelper {
+public class ContactHelper extends HelperBase{
     private WebDriver wd;
 
     public ContactHelper(WebDriver wd) {
 
-        this.wd = wd;
+        super(wd);
     }
     public void submitContactsCreation() {
-        wd.findElement(By.name("submit")).click();
+        click("submit");
+    }
+
+    private void click(String submit) {
+        wd.findElement(By.name(submit)).click();
     }
 
     public void fillGroupFormContacts(ContactData contactData) {
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-        wd.findElement(By.name("middlename")).clear();
-        wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-        wd.findElement(By.name("company")).click();
-        wd.findElement(By.name("company")).clear();
-        wd.findElement(By.name("company")).sendKeys(contactData.getCompany());
-        wd.findElement(By.name("address")).click();
-        wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
-        wd.findElement(By.name("home")).click();
-        wd.findElement(By.name("home")).clear();
-        wd.findElement(By.name("home")).sendKeys(contactData.getHome());
-        wd.findElement(By.name("mobile")).click();
-        wd.findElement(By.name("mobile")).clear();
-        wd.findElement(By.name("mobile")).sendKeys(contactData.getModile());
-        wd.findElement(By.name("email")).click();
-        wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+        type("firstname", By.name("firstname"), contactData.getFirstname());
+        type("middlename", contactData.getMiddlename(), By.name("middlename"));
+        type("lastname", contactData.getLastname(), By.name("lastname"));
+        type("company", By.name("company"), contactData.getCompany());
+        type("address", By.name("address"), contactData.getAddress());
+        type("home", By.name("home"), contactData.getHome());
+        type("mobile", By.name("mobile"), contactData.getModile());
+        type("email", By.name("email"), contactData.getEmail());
     }
+
+    private void type(String middlename, String middlename2, By locator) {
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(middlename2);
+    }
+
+    public void type(String firstname, By locator, String text) {
+        wd.findElement(locator).click();
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+    }
+
     public void returnToHomePage() {
         wd.switchTo().alert().accept();
 
@@ -49,7 +51,7 @@ public class ContactHelper {
     }
 
     public void selectContact() {
-        wd.findElement(By.name("selected[]")).click();
+        click("selected[]");
     }
 }
 
