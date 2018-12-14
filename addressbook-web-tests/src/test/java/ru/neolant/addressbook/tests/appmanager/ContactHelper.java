@@ -19,7 +19,7 @@ public class ContactHelper extends HelperBase{
 
     public void click(String submit) {
 
-        wd.findElement(By.name("selected[]")).click();
+        wd.findElement(By.name(submit)).click();
     }
 
     public void fillGroupFormContacts(ContactData contactData) {
@@ -56,6 +56,14 @@ public class ContactHelper extends HelperBase{
     public void selectContact() {
         click("selected[]");
     }
+
+    public void editContact() {
+        click("icons/pencil.png");
     }
+
+    public void updateContacts() {
+        click(By.name("udate"));
+    }
+}
 
 

@@ -3,21 +3,21 @@ package ru.neolant.addressbook.tests.Tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+import ru.neolant.addressbook.tests.model.ContactData;
 
 public class ContactsModificationTests extends TestBase{
     private WebDriver wd;
 
 
     @Test
-    public void testContactsModificationTests() throws Exception {
+    public void testContactsModification() throws Exception {
 
         app.getContactHelper().selectContact();
-        wd.findElement(By.xpath("//img[@alt='Edit']")).click();
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys("name1");
-        wd.findElement(By.xpath("(//input[@name='update'])[2]")).click();
-        wd.findElement(By.id("logo")).click();
+        app.getContactHelper().editContact();
+        app.getContactHelper().fillGroupFormContacts(new ContactData("first name", "middle name", "last name", "company", "Titova", "1212121", "555666", "info@info.ru"));
+        app.getContactHelper().updateContacts();
+        app.getContactHelper().returnToHomePage();
+
     }
 
 }
