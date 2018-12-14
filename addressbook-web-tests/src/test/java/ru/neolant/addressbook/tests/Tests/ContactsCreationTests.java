@@ -10,9 +10,9 @@ public class ContactsCreationTests extends TestBase{
     public void testContactsCreation() throws Exception {
 
         app.getNavigationHelper().gotoAddNew();
-        app.fillGroupFormContacts(new ContactData("first name", "middle name", "last name", "company", "Titova", "1212121", "555666", "info@info.ru"));
-        app.submitContactsCreation();
-        app.returnToHomePage();
+        app.getContactHelper().fillGroupFormContacts(new ContactData("first name", "middle name", "last name", "company", "Titova", "1212121", "555666", "info@info.ru"));
+        app.getContactHelper().submitContactsCreation();
+        app.getContactHelper().returnToHomePage();
     }
 
 }

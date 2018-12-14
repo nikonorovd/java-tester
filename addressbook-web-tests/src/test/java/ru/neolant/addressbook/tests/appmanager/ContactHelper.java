@@ -14,7 +14,7 @@ public class ContactHelper extends HelperBase{
     }
     public void submitContactsCreation() {
 
-        click("submit");
+        wd.findElement(By.name("submit")).click();
     }
 
     public void click(String submit) {

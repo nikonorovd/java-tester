@@ -41,9 +41,9 @@ public class ApplicationManager {
         }
     }
 
-    public void deleteSelectedContacts() {
+    public ContactHelper deleteSelectedContacts() {
+        return contactHelper;
 
-        click();
     }
 
     private void click() {
@@ -61,17 +61,21 @@ public class ApplicationManager {
     }
 
     public ContactHelper getContactHelper() {
+
         return contactHelper;
     }
 
     public ContactHelper getdeletionContact() {
+
         return contactHelper;
     }
 
     public ContactHelper getreturnToHomePage() {
+
         return contactHelper;
     }
     public ContactHelper getfillGroupFormContacts() {
+
         return contactHelper;
     }
     public ContactHelper getsubmitContactsCreation() {
@@ -79,28 +83,34 @@ public class ApplicationManager {
     }
 
     public NavigationHelper getNavigationHelper() {
+
         return navigationHelper;
     }
 
-    public void fillGroupFormContacts(ContactData contactData) {
+    public ContactHelper fillGroupFormContacts(ContactData contactData) {
+        return contactHelper;
 
     }
 
-    public void submitContactsCreation() {
+    public ContactHelper submitContactsCreation() {
+        return contactHelper;
 
 
     }
 
-    public void returnToHomePage() {
+    public ContactHelper returnToHomePage() {
+        return contactHelper;
 
     }
 
-    public void deletionContact() {
+    public ContactHelper deletionContact()
+    {return contactHelper;
 
 
     }
 
     public ApplicationManager contacthelper() {
+
         return null;
     }
 
