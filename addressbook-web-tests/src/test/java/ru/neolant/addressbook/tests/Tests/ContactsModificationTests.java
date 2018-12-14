@@ -11,8 +11,7 @@ public class ContactsModificationTests extends TestBase{
     @Test
     public void testContactsModificationTests() throws Exception {
 
-        wd.findElement(By.id("11")).click();
-        wd.findElement(By.xpath("//input[@value='Login']")).click();
+        app.getContactHelper().selectContact();
         wd.findElement(By.xpath("//img[@alt='Edit']")).click();
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();

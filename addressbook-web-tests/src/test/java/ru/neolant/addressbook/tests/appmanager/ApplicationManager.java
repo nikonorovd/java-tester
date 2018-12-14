@@ -43,6 +43,10 @@ public class ApplicationManager {
 
     public void deleteSelectedContacts() {
 
+        click();
+    }
+
+    private void click() {
         wd.findElement(By.xpath("//input[@value='Delete']")).click();
     }
 
@@ -52,7 +56,26 @@ public class ApplicationManager {
     }
 
     public GroupHelper getGroupHelper() {
+
         return groupHelper;
+    }
+
+    public ContactHelper getContactHelper() {
+        return contactHelper;
+    }
+
+    public ContactHelper getdeletionContact() {
+        return contactHelper;
+    }
+
+    public ContactHelper getreturnToHomePage() {
+        return contactHelper;
+    }
+    public ContactHelper getfillGroupFormContacts() {
+        return contactHelper;
+    }
+    public ContactHelper getsubmitContactsCreation() {
+        return contactHelper;
     }
 
     public NavigationHelper getNavigationHelper() {
@@ -74,5 +97,12 @@ public class ApplicationManager {
 
     public void deletionContact() {
 
+
     }
+
+    public ApplicationManager contacthelper() {
+        return null;
+    }
+
+
 }

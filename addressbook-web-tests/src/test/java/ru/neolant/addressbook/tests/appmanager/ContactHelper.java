@@ -10,13 +10,16 @@ public class ContactHelper extends HelperBase{
     public ContactHelper(WebDriver wd) {
 
         super(wd);
+        this.wd = wd;
     }
     public void submitContactsCreation() {
+
         click("submit");
     }
 
-    private void click(String submit) {
-        wd.findElement(By.name(submit)).click();
+    public void click(String submit) {
+
+        wd.findElement(By.name("selected[]")).click();
     }
 
     public void fillGroupFormContacts(ContactData contactData) {
@@ -30,7 +33,7 @@ public class ContactHelper extends HelperBase{
         type("email", By.name("email"), contactData.getEmail());
     }
 
-    private void type(String middlename, String middlename2, By locator) {
+    public void type(String middlename, String middlename2, By locator) {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(middlename2);
     }
@@ -42,7 +45,7 @@ public class ContactHelper extends HelperBase{
     }
 
     public void returnToHomePage() {
-        wd.switchTo().alert().accept();
+        wd.findElement(By.xpath("//img[@id='logo']")).click();
 
     }
     public void deletionContact() {
@@ -53,5 +56,6 @@ public class ContactHelper extends HelperBase{
     public void selectContact() {
         click("selected[]");
     }
-}
+    }
+
 
