@@ -12,6 +12,8 @@ public class ContactHelper extends HelperBase{
         super(wd);
         this.wd = wd;
     }
+
+
     public void submitContactsCreation() {
 
         wd.findElement(By.name("submit")).click();
@@ -45,25 +47,36 @@ public class ContactHelper extends HelperBase{
     }
 
     public void returnToHomePage() {
-        wd.findElement(By.xpath("//img[@id='logo']")).click();
+        click();
 
     }
+
+    private void click() {
+        wd.findElement(By.xpath("//img[@id='logo']")).click();
+    }
+
     public void deletionContact() {
         wd.findElement(By.xpath("//input[@value='Delete']")).click();
         wd.switchTo().alert().accept();
     }
 
     public void selectContact() {
-        click("selected[]");
-    }
 
-    public void editContact() {
-        click("icons/pencil.png");
+        click("selected[]");
+
     }
 
     public void updateContacts() {
-        click(By.name("udate"));
+
+        click(By.xpath("(//input[@name='update'])[2]"));
     }
+
+    public void editContact() {
+
+        click(By.xpath("//img[@alt='Edit']"));
+    }
+
+
 }
 
 

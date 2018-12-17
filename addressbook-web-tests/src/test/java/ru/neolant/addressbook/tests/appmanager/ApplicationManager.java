@@ -47,12 +47,12 @@ public class ApplicationManager {
     }
 
     private void click() {
+
         wd.findElement(By.xpath("//input[@value='Delete']")).click();
     }
 
     public void selectContact() {
         wd.findElement(By.name("selected[]"));
-
     }
 
     public GroupHelper getGroupHelper() {
@@ -79,6 +79,7 @@ public class ApplicationManager {
         return contactHelper;
     }
     public ContactHelper getsubmitContactsCreation() {
+
         return contactHelper;
     }
 
@@ -107,6 +108,16 @@ public class ApplicationManager {
     {return contactHelper;
 
 
+    }
+
+    public ContactHelper editContact() {
+
+        return contactHelper;
+    }
+
+    public ContactHelper updateContacts() {
+
+        return contactHelper;
     }
 
     public ApplicationManager contacthelper() {
