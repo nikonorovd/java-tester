@@ -1,13 +1,15 @@
 package ru.neolant.addressbook.tests.Tests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import ru.neolant.addressbook.tests.appmanager.ApplicationManager;
 
+
 public class TestBase {
 
-    protected final ApplicationManager app = new ApplicationManager();
+    protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
     private WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
