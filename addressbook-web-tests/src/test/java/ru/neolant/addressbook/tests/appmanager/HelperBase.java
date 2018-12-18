@@ -14,25 +14,31 @@ public class HelperBase {
 
     protected void click(By locator) {
         wd.findElement(locator).click();
-    }
 
-    protected void type(String group_header, By locator, String text) {
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
     }
 
     protected void type(By locator, String text) {
         click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
-    }
+        if (text != null) {
+            wd.findElement(locator).clear();
+            wd.findElement(locator).sendKeys(text);
 
-    public boolean isAlertPresent() {
-        try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
         }
     }
-}
+    protected void type(String group_header, By locator, String text) {
+        if (text != null) {
+            wd.findElement(locator).clear();
+            wd.findElement(locator).sendKeys(text);
+        }
+    }
+
+
+        public boolean isAlertPresent () {
+            try {
+                wd.switchTo().alert();
+                return true;
+            } catch (NoAlertPresentException e) {
+                return false;
+            }
+        }
+    }
