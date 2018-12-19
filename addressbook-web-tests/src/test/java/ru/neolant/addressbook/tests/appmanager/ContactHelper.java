@@ -1,11 +1,14 @@
 package ru.neolant.addressbook.tests.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.neolant.addressbook.tests.model.ContactData;
 
 public class ContactHelper extends HelperBase{
-    private WebDriver wd;
+
 
     public ContactHelper(WebDriver wd) {
 
@@ -24,7 +27,7 @@ public class ContactHelper extends HelperBase{
         wd.findElement(By.name(submit)).click();
     }
 
-    public void fillGroupFormContacts(ContactData contactData) {
+    public void fillContactsForm(ContactData contactData, boolean creation) {
         type("firstname", By.name("firstname"), contactData.getFirstname());
         type("middlename", contactData.getMiddlename(), By.name("middlename"));
         type("lastname", contactData.getLastname(), By.name("lastname"));
@@ -33,6 +36,13 @@ public class ContactHelper extends HelperBase{
         type("home", By.name("home"), contactData.getHome());
         type("mobile", By.name("mobile"), contactData.getModile());
         type("email", By.name("email"), contactData.getEmail());
+
+
+        if (creation){
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 
     public void type(String middlename, String middlename2, By locator) {
