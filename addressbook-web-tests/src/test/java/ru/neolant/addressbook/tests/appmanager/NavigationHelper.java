@@ -21,11 +21,7 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoAddNew() {
-        if (isElementPresent(By.id("maintable"))){
-            return;
-        }
-
-        click(By.linkText("add new"));
+           click(By.linkText("add new"));
     }
 
 }
