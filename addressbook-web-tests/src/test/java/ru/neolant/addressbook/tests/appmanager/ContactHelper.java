@@ -68,7 +68,7 @@ public class ContactHelper extends HelperBase{
 
     public void selectContact() {
 
-        click("selected[]");
+        click(By.name("selected[]"));
 
     }
 
@@ -83,6 +83,19 @@ public class ContactHelper extends HelperBase{
     }
 
 
+    public void createContact(ContactData contact, boolean b) {
+        fillContactsForm(contact);
+        submitContactsCreation();
+        returnToHomePage();
+    }
+
+    private void fillContactsForm(ContactData contact) {
+
+    }
+
+    public boolean isThereAContact() {
+return isElementPresent(By.name("selected[]"));
+    }
 }
 
 
