@@ -1,14 +1,26 @@
 package ru.neolant.addressbook.tests.model;
 
 public class GroupData {
+    private final String id;
     private final String groupname;
     private final String header;
     private final String footer;
 
-    public GroupData(String groupname, String header, String footer) {
+    public GroupData( String groupname, String header, String footer) {
+        this.id = null;
         this.groupname = groupname;
         this.header = header;
         this.footer = footer;
+    }
+    public GroupData(String id, String groupname, String header, String footer) {
+        this.id = id;
+        this.groupname = groupname;
+        this.header = header;
+        this.footer = footer;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getGroupname() {
@@ -30,18 +42,23 @@ public class GroupData {
 
         GroupData groupData = (GroupData) o;
 
+        if (id != null ? !id.equals(groupData.id) : groupData.id != null) return false;
         return groupname != null ? groupname.equals(groupData.groupname) : groupData.groupname == null;
     }
 
     @Override
     public int hashCode() {
-        return groupname != null ? groupname.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (groupname != null ? groupname.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "GroupData{" +
-                "groupname='" + groupname + '\'' +
+                "id='" + id + '\'' +
+                ", groupname='" + groupname + '\'' +
                 '}';
     }
+
 }
