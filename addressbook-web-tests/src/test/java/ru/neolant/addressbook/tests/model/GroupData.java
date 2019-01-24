@@ -1,52 +1,32 @@
 package ru.neolant.addressbook.tests.model;
 
 public class GroupData {
-    private final String id;
+    private  int id;
     private final String groupname;
     private final String header;
     private final String footer;
 
     public GroupData(String groupname, String header, String footer) {
-        this.id = null;
+        this.id = 0;
         this.groupname = groupname;
         this.header = header;
         this.footer = footer;
     }
-    public GroupData(String id, String groupname, String header, String footer) {
+    public GroupData(int id, String groupname, String header, String footer) {
         this.id = id;
         this.groupname = groupname;
         this.header = header;
         this.footer = footer;
     }
 
-    @Override
-    public String toString() {
-        return "GroupData{" +
-                "id='" + id + '\'' +
-                ", groupname='" + groupname + '\'' +
-                '}';
-    }
 
-    public String getId() {
+
+    public int getId() {
         return id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        GroupData groupData = (GroupData) o;
-
-        if (id != null ? !id.equals(groupData.id) : groupData.id != null) return false;
-        return groupname != null ? groupname.equals(groupData.groupname) : groupData.groupname == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (groupname != null ? groupname.hashCode() : 0);
-        return result;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getGroupname() {
@@ -61,4 +41,32 @@ public class GroupData {
         return footer;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        GroupData groupData = (GroupData) o;
+
+        if (id != groupData.id) return false;
+        return groupname != null ? groupname.equals(groupData.groupname) : groupData.groupname == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (groupname != null ? groupname.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupData{" +
+                "id='" + id + '\'' +
+                ", groupname='" + groupname + '\'' +
+                '}';
+    }
 }
+
+
